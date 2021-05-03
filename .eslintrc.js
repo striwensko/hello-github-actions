@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 module.exports = {
   env: {
     browser: true,
@@ -88,7 +89,7 @@ module.exports = {
     "max-depth": 2,
     "max-len": 2,
     "max-lines": 2,
-    "max-lines-per-function": [2, { max: 100 }],
+    "max-lines-per-function": [2, {max: 100}],
     "max-nested-callbacks": 2,
     "max-params": 2,
     "max-statements": 2,
@@ -139,7 +140,7 @@ module.exports = {
     "no-extra-bind": 2,
     "no-extra-boolean-cast": 2,
     "no-extra-label": 2,
-    "no-extra-parens": ["error", "all", { ignoreJSX: "all" }],
+    "no-extra-parens": ["error", "all", {ignoreJSX: "all"}],
     "no-extra-semi": 2,
     "no-fallthrough": 2,
     "no-floating-decimal": 2,
@@ -232,7 +233,7 @@ module.exports = {
     "no-unsafe-optional-chaining": 2,
     "no-unused-expressions": 2,
     "no-unused-labels": 2,
-    "no-unused-vars": ["error", { varsIgnorePattern: "_.*?$" }],
+    "no-unused-vars": ["error", {varsIgnorePattern: "_.*?$"}],
     "no-use-before-define": 2,
     "no-useless-backreference": 2,
     "no-useless-call": 2,
@@ -310,10 +311,10 @@ module.exports = {
     ],
     "react/jsx-indent-props": [2, 2],
     "react/jsx-key": 2,
-    "react/jsx-max-props-per-line": [2, { when: "multiline" }],
+    "react/jsx-max-props-per-line": [2, {when: "multiline"}],
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-props-no-multi-spaces": 2,
-    "react/jsx-sort-props": ["error", { callbacksLast: true }],
+    "react/jsx-sort-props": ["error", {callbacksLast: true}],
     "react/jsx-tag-spacing": [
       2,
       {
