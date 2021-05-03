@@ -1,8 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
 
-kjk jk j kjk
 function App() {
+  const time = [
+    33,
+    44
+];
   return (
     <div className="App">
       <header className="App-header">
