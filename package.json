@@ -6,6 +6,9 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "flow-bin": "^0.150.0",
+    "flow-typed": "^3.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -16,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "estlint"
+    "eslint": "estlint",
+    "flow": "flow"
   },
   "eslintConfig": {
     "extends": [
@@ -37,8 +41,10 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
+    "eslint-plugin-flowtype": "^5.7.2",
     "eslint-plugin-react": "^7.23.2",
-    "prettier": "2.2.1"
+    "prettier": "^2.2.1"
   }
 }
