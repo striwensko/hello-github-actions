@@ -13,6 +13,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
+    - uses: bradennapier/eslint-plus-action@v3.4.2
+      with: 
+        issueSummaryType: full
+        reportIgnoredFiles: true
     - name: Install dependencies
       run: npm install
     - run: npm run flow
