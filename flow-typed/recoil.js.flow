@@ -1,0 +1,89 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+/* eslint-disable flowtype/no-weak-types */
+/* eslint-disable flowtype/no-mixed */
+/* eslint max-len: 0 */
+
+type SetterOrUpdater<T> = (((T) => T) | T) => void;
+declare type UseRecoilState<T> = [T, SetterOrUpdater<T>];
+
+declare module "recoil" {
+  declare var ReactElement: any;
+  declare type NodeKey = string;
+  declare class DefaultValue {}
+  declare class AbstractRecoilValue<+T> {
+    constructor(newKey: NodeKey): any;
+    key: NodeKey;
+  }
+  declare class RecoilState<T> extends AbstractRecoilValue<T> {}
+  declare class RecoilValueReadOnly<+T> extends AbstractRecoilValue<T> {}
+
+  declare type ValueOrUpdater<T> =
+    | T
+    | DefaultValue
+    | ((prevValue: T) => T | DefaultValue);
+  declare type RecoilValue<T> = RecoilValueReadOnly<T> | RecoilState<T>;
+  declare type AtomOptions<T> = $ReadOnly<{
+    default: RecoilValue<T> | Promise<T> | T,
+    key: NodeKey,
+  }>;
+
+  declare type GetRecoilValue = <T>(RecoilValue<T>) => T;
+  declare type SetRecoilState = <T>(RecoilState<T>, ValueOrUpdater<T>) => void;
+  declare type ResetRecoilState = <T>(RecoilState<T>) => void;
+
+  declare type SetterOrUpdater<T> = (((T) => T) | T) => void;
+  declare type Resetter = () => void;
+
+  declare type ReadOnlySelectorOptions<T> = $ReadOnly<{
+    get: ({
+      get: GetRecoilValue,
+    }) => Promise<T> | RecoilValue<T> | T,
+    key: string,
+  }>;
+  declare type ReadWriteSelectorOptions<T> = $ReadOnly<{
+    ...ReadOnlySelectorOptions<T>,
+    set: (
+      {
+        get: GetRecoilValue,
+        reset: ResetRecoilState,
+        set: SetRecoilState,
+      },
+      newValue: T | DefaultValue,
+    ) => void,
+  }>;
+
+  declare function atom<T>(options: AtomOptions<T>): RecoilState<T>;
+
+  declare function selector<T>(
+    options: ReadOnlySelectorOptions<T>,
+  ): RecoilValueReadOnly<T>;
+  declare function selector<T>(
+    options: ReadWriteSelectorOptions<T>,
+  ): RecoilState<T>;
+
+  declare function useRecoilValue<T>(recoilValue: RecoilValue<T>): T;
+
+  declare function useSetRecoilState<T>(
+    recoilState: RecoilState<T>,
+  ): SetterOrUpdater<T>;
+  declare function useResetRecoilState<T>(
+    recoilState: RecoilState<T>,
+  ): Resetter;
+
+  declare function useRecoilState<T>(
+    recoilState: RecoilState<T>,
+  ): [T, SetterOrUpdater<T>];
+
+  declare type UseRecoilState<T> = [T, SetterOrUpdater<T>];
+  declare type UseRecoilSetState<T> = SetterOrUpdater<T>;
+
+  declare function RecoilRoot(arg0: {
+    children: any,
+  }): React$Element<any>;
+}

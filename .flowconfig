@@ -1,0 +1,22 @@
+[ignore]
+.*/node_modules/.*
+.*\.config\.js
+.*/cypress/integration/examples/.*
+.*/cypress/plugins/.*
+
+[include]
+./lib
+
+[libs]
+
+[lints]
+
+[options]
+all=true
+exact_by_default=true
+experimental.enums=true
+react.runtime=automatic
+module.name_mapper='^\(.*\)\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1/\2'
+module.name_mapper='^\(.*\)\/\(.*\)\/\(.*\)$' -> '<PROJECT_ROOT>/src/\1/\2/\3'
+
+[strict]
